@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shen Palaniappan — Director, Business Applications & Revenue Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0f0e;
+  --ink2: #3a3a38;
+  --ink3: #7a7a76;
+  --paper: #faf9f6;
+  --paper2: #f2f0eb;
+  --paper3: #e8e5de;
+  --accent: #1a4a8a;
+  --accent2: #c8410a;
+  --accent-light: #e8f0fb;
+  --rule: #d8d5ce;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 56px;
+}
+.nav-name { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 400; color: var(--ink3); text-decoration: none; letter-spacing: .04em; transition: color .2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  font-size: 12px; font-weight: 500; letter-spacing: .06em;
+  color: var(--accent); border: 1px solid var(--accent);
+  padding: 6px 16px; border-radius: 2px; text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.nav-cta:hover { background: var(--accent); color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  padding: 140px 2rem 80px;
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start;
+}
+.hero-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: .14em;
+  color: var(--accent2); text-transform: uppercase; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent2); }
+.hero-h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1.12;
+  color: var(--ink);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+.hero-h1 em { font-style: italic; color: var(--accent); }
+.hero-lead {
+  font-size: 1.05rem; color: var(--ink2); line-height: 1.75;
+  max-width: 520px; margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent); color: #fff;
+  padding: 12px 28px; border-radius: 2px;
+  font-size: 13px; font-weight: 500; letter-spacing: .05em;
+  text-decoration: none; transition: opacity .2s;
+}
+.btn-primary:hover { opacity: .85; }
+.btn-secondary {
+  border: 1px solid var(--rule); color: var(--ink2);
+  padding: 12px 28px; border-radius: 2px;
+  font-size: 13px; font-weight: 400; letter-spacing: .05em;
+  text-decoration: none; transition: border-color .2s, color .2s;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* hero sidebar */
+.hero-aside { padding-top: 8px; }
+.stat-stack { display: flex; flex-direction: column; gap: 1px; }
+.stat-item {
+  background: var(--paper2);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+}
+.stat-item:first-child { border-radius: 4px 4px 0 0; }
+.stat-item:last-child { border-radius: 0 0 4px 4px; }
+.stat-num {
+  font-family: var(--serif); font-size: 2.4rem;
+  color: var(--accent); line-height: 1; margin-bottom: 4px;
+}
+.stat-label { font-size: 12px; color: var(--ink3); font-weight: 400; line-height: 1.4; }
+
+/* ── SECTIONS ── */
+.section { padding: 80px 2rem; border-top: 1px solid var(--rule); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header {
+  display: grid; grid-template-columns: 200px 1fr; gap: 60px;
+  align-items: baseline; margin-bottom: 48px;
+}
+.section-label {
+  font-size: 11px; font-weight: 500; letter-spacing: .12em;
+  color: var(--ink3); text-transform: uppercase; padding-top: 6px;
+}
+.section-title {
+  font-family: var(--serif); font-size: 2rem;
+  font-weight: 400; color: var(--ink); line-height: 1.2;
+}
+
+/* ── EXPERTISE GRID ── */
+.expertise-grid {
+  display: grid; grid-template-columns: 200px 1fr; gap: 60px;
+}
+.expertise-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.exp-card {
+  background: var(--paper); padding: 28px;
+  transition: background .2s;
+}
+.exp-card:hover { background: var(--accent-light); }
+.exp-icon {
+  width: 32px; height: 32px; margin-bottom: 14px;
+  color: var(--accent);
+}
+.exp-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+.exp-desc { font-size: 13px; color: var(--ink3); line-height: 1.6; }
+
+/* ── IMPACT ── */
+.impact-grid { display: grid; grid-template-columns: 200px 1fr; gap: 60px; }
+.impact-items { display: flex; flex-direction: column; gap: 0; }
+.impact-row {
+  display: grid; grid-template-columns: 140px 1fr;
+  gap: 32px; padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.impact-row:first-child { padding-top: 0; }
+.impact-metric {
+  font-family: var(--serif); font-size: 2rem;
+  color: var(--accent2); line-height: 1;
+}
+.impact-metric span { font-size: 1rem; font-family: var(--sans); color: var(--ink3); font-weight: 300; }
+.impact-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+.impact-desc { font-size: 13px; color: var(--ink3); line-height: 1.6; }
+
+/* ── STACK ── */
+.stack-grid { display: grid; grid-template-columns: 200px 1fr; gap: 60px; }
+.stack-groups { display: flex; flex-direction: column; gap: 32px; }
+.stack-group-title {
+  font-size: 11px; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink3);
+  margin-bottom: 12px;
+}
+.stack-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  font-size: 12px; font-weight: 400;
+  padding: 6px 14px; border-radius: 20px;
+  border: 1px solid var(--rule);
+  color: var(--ink2); background: var(--paper2);
+  transition: border-color .15s, color .15s;
+}
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+.pill.accent { background: var(--accent-light); border-color: #b5cff0; color: var(--accent); }
+
+/* ── EXPERIENCE ── */
+.exp-timeline { display: flex; flex-direction: column; gap: 0; }
+.exp-entry {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 60px; padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.exp-entry:first-child { padding-top: 0; }
+.exp-period { font-size: 12px; color: var(--ink3); font-weight: 400; padding-top: 4px; line-height: 1.5; }
+.exp-company { font-size: 13px; font-weight: 500; color: var(--ink3); margin-top: 4px; }
+.exp-role { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); margin-bottom: 12px; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.exp-bullets li {
+  font-size: 13px; color: var(--ink2); line-height: 1.6;
+  padding-left: 16px; position: relative;
+}
+.exp-bullets li::before {
+  content: '—'; position: absolute; left: 0;
+  color: var(--accent2); font-size: 12px;
+}
+.exp-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.exp-tag {
+  font-size: 10px; font-weight: 500; letter-spacing: .06em;
+  padding: 3px 9px; border-radius: 2px;
+  background: var(--paper3); color: var(--ink3);
+  text-transform: uppercase;
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: var(--ink); color: var(--paper);
+  padding: 80px 2rem; border-top: 1px solid var(--rule);
+}
+.cta-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 60px; align-items: center;
+}
+.cta-headline { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; line-height: 1.2; margin-bottom: 12px; }
+.cta-sub { font-size: 14px; color: #9a9990; }
+.cta-links { display: flex; flex-direction: column; gap: 12px; }
+.cta-link {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--paper); text-decoration: none;
+  opacity: .8; transition: opacity .2s;
+}
+.cta-link:hover { opacity: 1; }
+.cta-link-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #9a9990; margin-bottom: 2px; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 24px 2rem; border-top: 1px solid #2a2a28;
+  background: var(--ink);
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 100%;
+}
+.footer-note { font-size: 12px; color: #5a5a58; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.hero-eyebrow { animation: fadeUp .6s ease both; }
+.hero-h1 { animation: fadeUp .6s .1s ease both; }
+.hero-lead { animation: fadeUp .6s .2s ease both; }
+.hero-actions { animation: fadeUp .6s .3s ease both; }
+.hero-aside { animation: fadeUp .6s .2s ease both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding: 120px 1.25rem 60px; }
+  .hero-aside { order: -1; }
+  .stat-stack { flex-direction: row; flex-wrap: wrap; }
+  .stat-item { flex: 1; min-width: 140px; }
+  .section-header, .expertise-grid, .impact-grid, .stack-grid, .exp-entry { grid-template-columns: 1fr; gap: 16px; }
+  .expertise-list { grid-template-columns: 1fr; }
+  .cta-inner { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#">Shen Palaniappan</a>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#stack">Tech Stack</a></li>
+    <li><a href="#support">Support & CS</a></li>
+    <li><a href="#experience">Experience</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:shenbapal@gmail.com">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Director · Business Applications & Revenue Systems</div>
+    <h1 class="hero-h1">
+      Turning Lead-to-Cash<br>into a <em>competitive weapon</em>
+    </h1>
+    <p class="hero-lead">
+      20+ years owning the full Lead-to-Cash stack — Salesforce CPQ, Revenue Cloud, NetSuite, SAP, CLM, marketing automation, and ERP — now embedding Agentic AI to make every stage from prospect to payment a competitive advantage.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:shenbapal@gmail.com" class="btn-primary">Let's Talk</a>
+      <a href="https://linkedin.com/in/shenbap" target="_blank" class="btn-secondary">LinkedIn Profile</a>
+    </div>
+  </div>
+  <div class="hero-aside">
+    <div class="stat-stack">
+      <div class="stat-item">
+        <div class="stat-num">$200M+</div>
+        <div class="stat-label">Revenue quoted through modernized Salesforce CPQ at Nokia — replacing a 20-year legacy system</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$100M+</div>
+        <div class="stat-label">Automated revenue throughput via Salesforce CPQ + NetSuite + CLM</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">40%</div>
+        <div class="stat-label">Reduction in quote-to-contract cycle time through AI-driven approval routing</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">160+</div>
+        <div class="stat-label">Global enterprise customers delivered across CPQ, CLM, and Billing platforms</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">25%</div>
+        <div class="stat-label">Productivity gain from GenAI agents embedded in CPQ and CLM workflows</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="section" id="expertise">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Core Expertise</div>
+      <h2 class="section-title">Where I create the most leverage</h2>
+    </div>
+    <div class="expertise-grid">
+      <div></div>
+      <div class="expertise-list">
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 7h6m-3-3v3m-6 9l3-3 2 2 4-5 3 3"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          <div class="exp-title">Salesforce CPQ & Revenue Cloud</div>
+          <div class="exp-desc">End-to-end configuration of pricing rules, approval hierarchies, product bundles, and quote templates. Multi-cloud implementations at scale.</div>
+        </div>
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+          <div class="exp-title">Agentic AI in Commercial Workflows</div>
+          <div class="exp-desc">Built GenAI agents for contract redlining, multilingual clause analysis, pricing simulation, and obligation assignment using LangGraph and CrewAI.</div>
+        </div>
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z"/></svg>
+          <div class="exp-title">End-to-End Lead-to-Cash Architecture</div>
+          <div class="exp-desc">Owns the full commercial stack from marketing automation and CRM through CPQ, contract execution, billing, ERP revenue recognition, and financial close — across NetSuite, SAP, Salesforce, and Oracle.</div>
+        </div>
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h7"/><circle cx="17" cy="18" r="3"/><path d="M17 15v3l2 1"/></svg>
+          <div class="exp-title">CLM & Contract Lifecycle</div>
+          <div class="exp-desc">Designed contract templates, clause libraries, automated approval workflows, and risk-detection engines integrated with Conga, Ironclad, and DocuSign.</div>
+        </div>
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+          <div class="exp-title">ERP Integration — NetSuite & SAP</div>
+          <div class="exp-desc">API-led architecture via Boomi and MuleSoft connecting Salesforce to NetSuite ERP and SAP — real-time quote-to-invoice sync, revenue recognition automation, and multi-entity financial consolidation.</div>
+        </div>
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <div class="exp-title">Marketing Applications & Demand Generation</div>
+          <div class="exp-desc">Governed marketing application stacks — Marketo, Pardot, HubSpot — integrated with Salesforce CRM to enable closed-loop lead management, attribution reporting, and pipeline visibility from first touch to closed-won.</div>
+        </div>
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          <div class="exp-title">Usage-Based & Subscription Billing</div>
+          <div class="exp-desc">Led transition from subscription to consumption-based revenue models, enabling flexible pricing, invoicing automation, and ASC 606-compliant revenue recognition.</div>
+        </div>
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <div class="exp-title">GTM Systems & Cross-Functional Alignment</div>
+          <div class="exp-desc">Mapped 60+ deal workflows, standardized global approval governance, and aligned Sales, Finance, and Legal on a unified Lead-to-Cash architecture.</div>
+        </div>
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <div class="exp-title">Enterprise Customer Support Operations</div>
+          <div class="exp-desc">Built and scaled global support organizations — 50+ FTEs across regions — delivering CSAT &gt;92% and SLA &gt;95% for 160+ enterprise accounts on CPQ, CLM, and Billing platforms.</div>
+        </div>
+        <div class="exp-card">
+          <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2v5H7zM11 10h2v3h-2zM15 7h2v6h-2z"/></svg>
+          <div class="exp-title">Applications Support & Managed Services</div>
+          <div class="exp-desc">Directed Premier Plus managed services — named engineers, proactive health checks, QBRs, and governance dashboards — across Tier-1 enterprise SaaS accounts.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="section" id="impact">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Measurable Impact</div>
+      <h2 class="section-title">Results that show up on the P&L</h2>
+    </div>
+    <div class="impact-grid">
+      <div></div>
+      <div class="impact-items">
+        <div class="impact-row">
+          <div>
+            <div class="impact-metric">$200<span>M</span></div>
+          </div>
+          <div>
+            <div class="impact-title">Revenue quoted through modernized Nokia CPQ</div>
+            <div class="impact-desc">Replaced a 20-year-old legacy quoting system with Salesforce CPQ — enabling $200M+ in annual deal volume to be quoted, priced, approved, and handed off to downstream order processing through the new platform.</div>
+          </div>
+        </div>
+        <div class="impact-row">
+          <div>
+            <div class="impact-metric">40<span>%</span></div>
+          </div>
+          <div>
+            <div class="impact-title">Quote-to-contract cycle time reduction</div>
+            <div class="impact-desc">Achieved through AI-driven approval routing, automated contract risk detection, and elimination of manual handoffs between Sales, Legal, and Finance at a global SaaS company.</div>
+          </div>
+        </div>
+        <div class="impact-row">
+          <div>
+            <div class="impact-metric">$100<span>M+</span></div>
+          </div>
+          <div>
+            <div class="impact-title">Automated revenue throughput</div>
+            <div class="impact-desc">Integrated Salesforce CPQ + NetSuite ERP + Conga CLM into a single quote-to-cash pipeline, enabling $100M+ in annual deal volume to flow without manual intervention.</div>
+          </div>
+        </div>
+        <div class="impact-row">
+          <div>
+            <div class="impact-metric">25<span>%</span></div>
+          </div>
+          <div>
+            <div class="impact-title">Productivity gain from GenAI agents</div>
+            <div class="impact-desc">Deployed Agentic AI for contract summarization, multilingual clause understanding, redlining support, and pricing simulation — measured across cross-regional deal teams.</div>
+          </div>
+        </div>
+        <div class="impact-row">
+          <div>
+            <div class="impact-metric">90<span>%</span></div>
+          </div>
+          <div>
+            <div class="impact-title">On-time release delivery (up from 50%)</div>
+            <div class="impact-desc">Automated release readiness processes at Automation Anywhere, driving a 40-point improvement in delivery predictability across Engineering, Product, and Support.</div>
+          </div>
+        </div>
+        <div class="impact-row">
+          <div>
+            <div class="impact-metric">6</div>
+          </div>
+          <div>
+            <div class="impact-title">M&A CRM/ERP migrations in 7 months</div>
+            <div class="impact-desc">Led six simultaneous merger integrations at Mitratech with zero downtime, maintaining SOX and SOC 2 compliance throughout each transition.</div>
+          </div>
+        </div>
+        <div class="impact-row">
+          <div>
+            <div class="impact-metric">35<span>%</span></div>
+          </div>
+          <div>
+            <div class="impact-title">Quote-to-invoice time reduction at Conga</div>
+            <div class="impact-desc">Collaborated with Product & Engineering to enhance platform interoperability across CPQ, CLM, and Billing for 160+ enterprise customers including Salesforce, Adobe, and Workday.</div>
+          </div>
+        </div>
+        <div class="impact-row">
+          <div>
+            <div class="impact-metric">92<span>%+</span></div>
+          </div>
+          <div>
+            <div class="impact-title">CSAT sustained across global support organization</div>
+            <div class="impact-desc">Led a 50-FTE global support and managed-services team maintaining CSAT above 92% and SLA above 95% — supported by a ONE JIRA escalation model that cut escalation turnaround by 40% YoY.</div>
+          </div>
+        </div>
+        <div class="impact-row">
+          <div>
+            <div class="impact-metric">40<span>%</span></div>
+          </div>
+          <div>
+            <div class="impact-title">Escalation turnaround improvement YoY</div>
+            <div class="impact-desc">Unified Support, Product, and Engineering under a single escalation model at Conga, eliminating inter-team handoff delays and dramatically reducing time-to-resolution for Tier-1 enterprise customers.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="section" id="stack">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Technology Stack</div>
+      <h2 class="section-title">Platforms I go deep on</h2>
+    </div>
+    <div class="stack-grid">
+      <div></div>
+      <div class="stack-groups">
+        <div>
+          <div class="stack-group-title">CPQ, CLM & Revenue</div>
+          <div class="stack-pills">
+            <span class="pill accent">Salesforce CPQ</span>
+            <span class="pill accent">Salesforce Revenue Cloud</span>
+            <span class="pill accent">Conga CPQ</span>
+            <span class="pill accent">Conga CLM</span>
+            <span class="pill">Conga Billing</span>
+            <span class="pill">DocuSign CLM</span>
+            <span class="pill">Ironclad</span>
+            <span class="pill">Zuora</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-group-title">CRM & GTM</div>
+          <div class="stack-pills">
+            <span class="pill accent">Salesforce Sales Cloud</span>
+            <span class="pill accent">Salesforce Service Cloud</span>
+            <span class="pill">HubSpot</span>
+            <span class="pill">Zendesk</span>
+            <span class="pill">ServiceNow</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-group-title">ERP & Finance Systems</div>
+          <div class="stack-pills">
+            <span class="pill accent">NetSuite ERP</span>
+            <span class="pill accent">SAP SD / FI</span>
+            <span class="pill">Oracle Financials</span>
+            <span class="pill">Workday</span>
+            <span class="pill">Coupa</span>
+            <span class="pill">ASC 606 Revenue Recognition</span>
+            <span class="pill">Multi-entity Consolidation</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-group-title">Marketing Applications</div>
+          <div class="stack-pills">
+            <span class="pill accent">Salesforce Marketing Cloud</span>
+            <span class="pill accent">Pardot / Account Engagement</span>
+            <span class="pill accent">Marketo</span>
+            <span class="pill">HubSpot Marketing Hub</span>
+            <span class="pill">6sense</span>
+            <span class="pill">Demandbase</span>
+            <span class="pill">Lead Attribution Reporting</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-group-title">AI & Automation</div>
+          <div class="stack-pills">
+            <span class="pill accent">OpenAI API</span>
+            <span class="pill accent">LangGraph</span>
+            <span class="pill accent">CrewAI</span>
+            <span class="pill">Automation Anywhere</span>
+            <span class="pill">Scrut Compliance (SOC2/GDPR)</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-group-title">Integration & Data</div>
+          <div class="stack-pills">
+            <span class="pill accent">MuleSoft</span>
+            <span class="pill accent">Boomi</span>
+            <span class="pill">PowerBI</span>
+            <span class="pill">Tableau</span>
+            <span class="pill">Jira</span>
+            <span class="pill">Confluence</span>
+            <span class="pill">Smartsheet</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-group-title">Customer & Applications Support</div>
+          <div class="stack-pills">
+            <span class="pill accent">Salesforce Service Cloud</span>
+            <span class="pill accent">Zendesk</span>
+            <span class="pill accent">ServiceNow ITSM</span>
+            <span class="pill">Jira Service Management</span>
+            <span class="pill">Gainsight</span>
+            <span class="pill">Totango</span>
+            <span class="pill">Voice-of-Customer Reporting</span>
+            <span class="pill">KPI / SLA Governance Dashboards</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-group-title">Methodologies</div>
+          <div class="stack-pills">
+            <span class="pill">Agile Delivery</span>
+            <span class="pill">Lean Six Sigma</span>
+            <span class="pill">Change Management</span>
+            <span class="pill">SOC 2 / GDPR</span>
+            <span class="pill">SOX Compliance</span>
+            <span class="pill">PMP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMER & APPLICATIONS SUPPORT -->
+<section class="section" id="support">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Customer & Applications Support</div>
+      <h2 class="section-title">Enterprise-grade support at scale</h2>
+    </div>
+    <div class="expertise-grid">
+      <div></div>
+      <div>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.8;margin-bottom:32px;max-width:640px;">
+          Before and alongside architecting systems, I've run the support operations that keep them running — managing global teams, designing escalation frameworks, and building the customer success programs that turn enterprise accounts into long-term partners.
+        </p>
+        <div class="expertise-list" style="margin-bottom:32px;">
+          <div class="exp-card">
+            <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8a16 16 0 006.09 6.09l.31-.31a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <div class="exp-title">Premier Plus Support Programs</div>
+            <div class="exp-desc">Designed and launched named-engineer support programs with proactive health checks, quarterly business reviews, and dedicated escalation paths — used by strategic accounts including Salesforce, Adobe, and Workday.</div>
+          </div>
+          <div class="exp-card">
+            <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            <div class="exp-title">Support Governance & SLA Dashboards</div>
+            <div class="exp-desc">Built executive-level governance dashboards tracking FRT, MTTR, CSAT, and backlog health — used in board-level reviews and customer QBRs to drive accountability and continuous improvement.</div>
+          </div>
+          <div class="exp-card">
+            <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <div class="exp-title">Escalation Management & ONE JIRA Model</div>
+            <div class="exp-desc">Pioneered the ONE JIRA escalation framework uniting Support, Product, and Engineering into a single workflow — reducing escalation turnaround by 40% YoY and eliminating cross-team handoff delays.</div>
+          </div>
+          <div class="exp-card">
+            <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <div class="exp-title">Global Team Leadership (50+ FTEs)</div>
+            <div class="exp-desc">Managed cross-regional support and managed-services teams across the US, UK, and India — maintaining CSAT above 92% and SLA compliance above 95% across 160+ enterprise accounts.</div>
+          </div>
+          <div class="exp-card">
+            <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z" rx="2"/><path d="M9 9h6M9 13h4"/></svg>
+            <div class="exp-title">Knowledge Management & Voice-of-Customer</div>
+            <div class="exp-desc">Built knowledge management frameworks and Voice-of-Customer reporting pipelines at Automation Anywhere, surfacing product gaps and CX insights directly into Engineering and Product roadmaps.</div>
+          </div>
+          <div class="exp-card">
+            <svg class="exp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="exp-title">Applications Support & Release Readiness</div>
+            <div class="exp-desc">Directed application support operations covering Salesforce multi-cloud, NetSuite, ServiceNow, and Zendesk — automating release readiness checks to drive on-time delivery from 50% to 90%.</div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--rule);padding-top:28px;">
+          <div style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px;">Support Metrics at a Glance</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden;">
+            <div style="background:var(--paper);padding:20px 24px;">
+              <div style="font-family:var(--serif);font-size:2rem;color:var(--accent);line-height:1;margin-bottom:4px;">92%+</div>
+              <div style="font-size:12px;color:var(--ink3);">CSAT sustained across global support org</div>
+            </div>
+            <div style="background:var(--paper);padding:20px 24px;">
+              <div style="font-family:var(--serif);font-size:2rem;color:var(--accent);line-height:1;margin-bottom:4px;">95%+</div>
+              <div style="font-size:12px;color:var(--ink3);">SLA compliance across 160+ enterprise accounts</div>
+            </div>
+            <div style="background:var(--paper);padding:20px 24px;">
+              <div style="font-family:var(--serif);font-size:2rem;color:var(--accent2);line-height:1;margin-bottom:4px;">40%</div>
+              <div style="font-size:12px;color:var(--ink3);">YoY escalation turnaround improvement</div>
+            </div>
+            <div style="background:var(--paper);padding:20px 24px;">
+              <div style="font-family:var(--serif);font-size:2rem;color:var(--accent2);line-height:1;margin-bottom:4px;">50</div>
+              <div style="font-size:12px;color:var(--ink3);">FTEs managed across US, UK, and India</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Career History</div>
+      <h2 class="section-title">20+ years of enterprise delivery</h2>
+    </div>
+    <div class="exp-timeline">
+
+      <div class="exp-entry">
+        <div>
+          <div class="exp-period">2023 — Present</div>
+          <div class="exp-company">Nokia<br>via NuNavy · Dublin, CA</div>
+        </div>
+        <div>
+          <div class="exp-role">Lead Consultant — CPQ Modernization & Revenue Applications</div>
+          <ul class="exp-bullets">
+            <li>Led end-to-end modernization of a 20-year-old legacy CPQ system to Salesforce CPQ — enabling $200M+ in annual deal volume to be quoted, priced, approved, and integrated to downstream order processing across a global telecommunications enterprise.</li>
+            <li>Architected the complete product setup and catalog structure — built product hierarchy, bundles, option groups, pricing rules, and configuration logic to replicate and improve complex legacy quoting models.</li>
+            <li>Designed and delivered multi-tiered pricing engine — list price, customer-specific pricing, discount schedules, volume tiers, and approval-based override governance, replacing manual pricing spreadsheets.</li>
+            <li>Engineered approval workflow framework — deal-size thresholds, role-based routing, parallel and sequential approvals, and escalation paths aligned to Nokia's global sales governance policy.</li>
+            <li>Designed and delivered integration architecture connecting Salesforce CPQ to Nokia's downstream order processing and fulfillment systems — ensuring real-time order handoff, order line accuracy, and status sync back into CRM.</li>
+            <li>Governed integration layer via Boomi/MuleSoft — quote-to-order payload mapping, error handling, retry logic, and audit trail for compliance and operations teams.</li>
+            <li>Partnered with Sales, Finance, and IT leadership to drive change management, user adoption, and training across global deal teams transitioning off legacy tooling.</li>
+          </ul>
+          <div class="exp-tag-row">
+            <span class="exp-tag">Legacy Modernization</span>
+            <span class="exp-tag">Salesforce CPQ</span>
+            <span class="exp-tag">Product Catalog</span>
+            <span class="exp-tag">Pricing Engine</span>
+            <span class="exp-tag">Approval Workflows</span>
+            <span class="exp-tag">Order Integration</span>
+            <span class="exp-tag">Boomi / MuleSoft</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-entry">
+        <div>
+          <div class="exp-period">2022 — 2023</div>
+          <div class="exp-company">Automation Anywhere<br>San Jose, CA</div>
+        </div>
+        <div>
+          <div class="exp-role">Global Leader — Technical Excellence Center</div>
+          <ul class="exp-bullets">
+            <li>Directed programs integrating Support Operations, Product Management, and Analytics to improve CX for enterprise accounts.</li>
+            <li>Automated release readiness processes → 90% on-time delivery (up from 50%).</li>
+            <li>Managed $3M budget and 15 offshore resources across UK and India.</li>
+          </ul>
+          <div class="exp-tag-row">
+            <span class="exp-tag">Operations</span>
+            <span class="exp-tag">$3M Budget</span>
+            <span class="exp-tag">Global Teams</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-entry">
+        <div>
+          <div class="exp-period">2021 — 2022</div>
+          <div class="exp-company">Mitratech<br>Austin, TX</div>
+        </div>
+        <div>
+          <div class="exp-role">Director — GTM & Business Applications</div>
+          <ul class="exp-bullets">
+            <li>Directed $3M enterprise applications portfolio spanning Salesforce, NetSuite, Coupa, and Workday.</li>
+            <li>Implemented Salesforce CPQ + CLM integration with NetSuite ERP via Boomi to automate quote generation, contract execution, and billing sync.</li>
+            <li>Led 6 M&A CRM/ERP migrations within 7 months ensuring SOX/SOC2 compliance and zero downtime.</li>
+            <li>Rolled out Sales/Service Cloud for 500+ users across 3 regions → adoption up 40%.</li>
+          </ul>
+          <div class="exp-tag-row">
+            <span class="exp-tag">Salesforce CPQ</span>
+            <span class="exp-tag">M&A Integration</span>
+            <span class="exp-tag">SOX / SOC2</span>
+            <span class="exp-tag">NetSuite</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-entry">
+        <div>
+          <div class="exp-period">2015 — 2021</div>
+          <div class="exp-company">Conga<br>San Mateo, CA</div>
+        </div>
+        <div>
+          <div class="exp-role">Sr. Manager — Strategic Premium Support & Managed Services</div>
+          <ul class="exp-bullets">
+            <li>Directed enterprise-wide implementations and support of Conga CPQ, CLM, and Billing for 160+ global enterprise customers.</li>
+            <li>Partnered with Salesforce, Workday, Adobe, DocuSign, and ABB to deploy scalable CPQ/CLM architectures integrated with Salesforce CRM and ERP.</li>
+            <li>Designed complex quoting models supporting subscription, usage-based, and milestone billing.</li>
+            <li>Oversaw global support and managed-services team (50 FTEs) with CSAT >92% and SLA >95%.</li>
+            <li>Led ONE JIRA escalation model uniting Support + Product + Engineering → escalation turnaround down 40% YoY.</li>
+          </ul>
+          <div class="exp-tag-row">
+            <span class="exp-tag">Conga CPQ/CLM</span>
+            <span class="exp-tag">160+ Customers</span>
+            <span class="exp-tag">50 FTE Team</span>
+            <span class="exp-tag">CSAT 92%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-entry">
+        <div>
+          <div class="exp-period">2008 — 2015</div>
+          <div class="exp-company">Spirent Communications<br>Sunnyvale, CA</div>
+        </div>
+        <div>
+          <div class="exp-role">GTM Transformation & Business Applications Lead</div>
+          <ul class="exp-bullets">
+            <li>Led Salesforce Sales/Service Cloud implementation and data migration from Siebel CRM.</li>
+            <li>Managed team of 10 for CRM consolidation and marketing automation initiatives.</li>
+          </ul>
+          <div class="exp-tag-row">
+            <span class="exp-tag">Salesforce</span>
+            <span class="exp-tag">CRM Migration</span>
+            <span class="exp-tag">GTM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-entry">
+        <div>
+          <div class="exp-period">Prior</div>
+          <div class="exp-company">Autodesk · The New York Times</div>
+        </div>
+        <div>
+          <div class="exp-role">GTM Transformation Lead · CRM Consultant</div>
+          <ul class="exp-bullets">
+            <li>GTM transformation and CRM consulting engagements at two marquee enterprise organizations.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div>
+      <h2 class="cta-headline">Open to Director-level roles in Business Applications, RevOps & AI</h2>
+      <p class="cta-sub">Based in Dublin, CA · Open to remote · Available from August 2026</p>
+    </div>
+    <div class="cta-links">
+      <div>
+        <div class="cta-link-label">Email</div>
+        <a class="cta-link" href="mailto:shenbapal@gmail.com">shenbapal@gmail.com</a>
+      </div>
+      <div>
+        <div class="cta-link-label">Phone</div>
+        <a class="cta-link" href="tel:4156120141">415-612-0141</a>
+      </div>
+      <div>
+        <div class="cta-link-label">LinkedIn</div>
+        <a class="cta-link" href="https://linkedin.com/in/shenbap" target="_blank">linkedin.com/in/shenbap</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-note">Shen Palaniappan · Dublin, CA</span>
+  <span class="footer-note">B.E. Computer Science, Madras University</span>
+</footer>
+
+</body>
+</html>
